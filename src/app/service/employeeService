@@ -1,0 +1,21 @@
+import {HttpClient} from "@angular/common/http";
+import {Injectable} from "@angular/core";
+import {environment} from "../../environments/environment";
+
+@Injectable({providedIn:"root"})
+export class EmployeeService{
+    constructor(private httpClient:HttpClient){}
+
+    addEmployee(body:any){
+        return this.httpClient.post(`${environment.apiUrl}/api/add-employee`,body)
+    }
+
+
+    getEmployeeList() {
+         return this.httpClient.get(`${environment.apiUrl}/api/employee-list?page=0&size=10&sort=ASC`)
+    }
+
+    deleteEmployee(employeeId) {
+        return this.httpClient.delete(`${environment.apiUrl}/api/delete-employee?employeeId=${employeeId}`)
+    }
+}

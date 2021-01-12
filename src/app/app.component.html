@@ -1,4 +1,32 @@
-<h1>wwwwww</h1>
+
+<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+<p>First Name</p><input type="text" formControlName="firstName" />
+<p>Last Name</p><input type="text" formControlName="lastName" />
+<p>Address</p><input type="text" formControlName="address" />
+<p>State</p><input type="text" formControlName="state" />
+<p>Country</p><input type="text" formControlName="country" />
+<p>Zip code</p><input type="text" formControlName="zipCode" />
+<p>Department</p> <select formControlName="department">
+    <option value="Accounting">Accounting</option>
+    <option value="Technical">Technical</option>
+    <option value="Logistics">Logistics</option>
+</select>
+    <button>Save</button>
+
+
+    <div *ngFor="let obj as employees">
+        <p>Id</p>{{obj.employeeId}}
+        <p>FirstName</p>{{obj.firstName}}
+        <p>LastName</p>{{obj.lastName}}
+        <p>Address</p>{{obj.address}}
+        <p>State</p>{{obj.state}}
+        <p>Country</p>{{obj.country}}
+        <p>ZipCode</p>{{obj.zipCode}}
+        <p>department</p>{{obj.department}}
+
+        <button (click)="deleteEmployee(obj.employeeId)"> Delete</button>
+    </div>
+</form>
 
 
 
